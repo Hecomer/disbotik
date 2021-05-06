@@ -1,0 +1,56 @@
+import discord
+import asyncio
+import random
+import requests
+
+TOKEN = "ODM5ODM0MjM3MDE5NjE5NDAw.YJPalQ.FJfVquJHmfUD4sBBTpZKjd9NcaI"
+
+maps = ["dust", "nuke", "mirage", "mocha", "inferno"]
+
+class Disociate(discord.Client):
+
+    async def on_ready(self):
+        print(f'{self.user} подключён к Discord')
+        for guild in client.guilds:
+            print(
+                f'{client.user} подключился к каналу:\n'
+                f'{guild.name} (id: {guild.id})'
+            )
+
+    async def on_message(self, message):
+        if message.content.startswith("!помощь"):
+            await message.channel.send('''Список команд:
+             !орел и решка - по названию не понятно?
+             !таймер (кол-во часов) часов (кол-во минут) минут - ну таймер типа...
+             !мкс - выводит текущее положение мкс (зачем?...)
+             !карта - выводит рандомную карту (вдруг не можете определиться)''')
+        if message.content.startswith("!мкс"):
+            res = requests.get("http://api.open-notify.org/iss-now.json")
+            obj = res.json()
+            await message.channel.send(f"{obj['iss_position']['latitude']}")
+            await message.channel.send(f"{obj['iss_position']['longitude']}")
+        if message.content.startswith("!таймер"):
+            hours, minutes = int(message.content.split()[1]), int(message.content.split()[3])
+            await message.channel.send(f':gosling: Таймер сработает через {hours} hours и {minutes} minutes')
+            await asyncio.sleep(hours * 3600 + minutes * 60)
+            await message.channel.send(
+                "Ну как там с часами :dengi:")
+        if message.content.startswith("!орел и решка"):
+            answer = random.randint(1, 2)
+            if answer == 1:
+                answer = 'Орёл!'
+            else:
+                answer = "Решка!"
+            await message.channel.send("Ща подкину")
+            await asyncio.sleep(3)
+            await message.channel.send("Блин, укатилась, ща подниму")
+            await asyncio.sleep(5)
+            await message.channel.send(f"{answer}")
+        if message.content.startswith("!карта"):
+            mapa = random.randint(0, 4)
+            ans = maps[mapa]
+            await message.channel.send(f"{ans}")
+
+
+client = Disociate()
+client.run(TOKEN)
