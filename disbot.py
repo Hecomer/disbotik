@@ -7,9 +7,6 @@ from googletrans import Translator
 
 TOKEN = os.environ.get('BOT_TOKEN')
 
-with open("token.txt") as f:
-    TOKEN = f.read().strip()
-
 maps = ["dust", "nuke", "mirage", "mocha", "inferno"]
 
 class Disociate(discord.Client):
