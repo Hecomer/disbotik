@@ -5,7 +5,7 @@ import requests
 import googletrans
 from googletrans import Translator
 
-TOKEN = "ODM5ODM0MjM3MDE5NjE5NDAw.YJPalQ.FJfVquJHmfUD4sBBTpZKjd9NcaI"
+TOKEN = "ODM5ODM0MjM3MDE5NjE5NDAw.YJPalQ.flAUFOI06zcS5AA77f1EXXlPm2o"
 
 maps = ["dust", "nuke", "mirage", "mocha", "inferno"]
 
