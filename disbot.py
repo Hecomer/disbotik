@@ -5,7 +5,10 @@ import requests
 import googletrans
 from googletrans import Translator
 
-TOKEN = open(tok.json)
+TOKEN = None
+
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
 
 maps = ["dust", "nuke", "mirage", "mocha", "inferno"]
 
