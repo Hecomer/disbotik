@@ -5,7 +5,7 @@ import requests
 import googletrans
 from googletrans import Translator
 
-TOKEN = None
+TOKEN = os.environ.get('BOT_TOKEN')
 
 with open("token.txt") as f:
     TOKEN = f.read().strip()
