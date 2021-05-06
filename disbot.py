@@ -4,6 +4,7 @@ import random
 import requests
 import googletrans
 from googletrans import Translator
+import os
 
 TOKEN = os.environ.get('BOT_TOKEN')
 
