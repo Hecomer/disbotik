@@ -24,9 +24,9 @@ class Disociate(discord.Client):
         if message.content.startswith("!максим"):
             count = int(message.content.split()[1])
             while count != 0:
-                await message.channel.send(f"{str(client.channel.get_user(694869288846360636))}")
+                await message.channel.send(f"<@316595488432455680>")
                 count = count - 1
-                await asyncio.sleep(5)
+                await asyncio.sleep(2)
         if message.content.startswith("!помощь"):
             await message.channel.send('''Список команд:
              !орел и решка - по названию не понятно?
@@ -41,10 +41,10 @@ class Disociate(discord.Client):
             await message.channel.send(f"{obj['iss_position']['longitude']}")
         if message.content.startswith("!таймер"):
             hours, minutes = int(message.content.split()[1]), int(message.content.split()[3])
-            await message.channel.send(f'{str(client.channel.get_emoji(748200364351815852))}', f'Таймер сработает через {hours} hours и {minutes} minutes')
+            await message.channel.send(f'{str(client.get_emoji(748200364351815852))} Таймер сработает через {hours} hours и {minutes} minutes')
             await asyncio.sleep(hours * 3600 + minutes * 60)
             await message.channel.send(
-                f"Ну как там с часами {str(client.channel.get_emoji(748200275600212028))}")
+                f"Ну как там с часами {str(client.get_emoji(748200275600212028))}")
         if message.content.startswith("!орел и решка"):
             answer = random.randint(1, 2)
             if answer == 1:
