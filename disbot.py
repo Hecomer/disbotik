@@ -21,12 +21,19 @@ class Disociate(discord.Client):
             )
 
     async def on_message(self, message):
+         if message.content.startswith("!максим"):
+            count = int(message.content.split()[1])
+            while count != 0:
+                await message.channel.send("@Максим")
+                count = count - 1
+                await asyncio.sleep(5)
         if message.content.startswith("!помощь"):
             await message.channel.send('''Список команд:
              !орел и решка - по названию не понятно?
              !таймер (кол-во часов) часов (кол-во минут) минут - ну таймер типа...
              !мкс - выводит текущее положение мкс (зачем?...)
-             !карта - выводит рандомную карту (вдруг не можете определиться)''')
+             !карта - выводит рандомную карту (вдруг не можете определиться)
+             !максим (кол-во раз) - зовет максима определенное количество раз''')
         if message.content.startswith("!мкс"):
             res = requests.get("http://api.open-notify.org/iss-now.json")
             obj = res.json()
