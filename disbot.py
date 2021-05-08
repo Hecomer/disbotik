@@ -21,7 +21,7 @@ class Disociate(discord.Client):
             )
 
     async def on_message(self, message):
-         if message.content.startswith("!максим"):
+        if message.content.startswith("!максим"):
             count = int(message.content.split()[1])
             while count != 0:
                 await message.channel.send("@Максим")
