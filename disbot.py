@@ -29,7 +29,7 @@ class Disociate(discord.Client):
                     count = count - 1
                     await asyncio.sleep(2)
                 else:
-                    print("Ты дебилка?")
+                    await message.channel.send("Ты дебилка?")
         if message.content.startswith("!помощь"):
             await message.channel.send('''Список команд:
              !орел и решка - по названию не понятно?
