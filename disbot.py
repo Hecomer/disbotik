@@ -24,9 +24,12 @@ class Disociate(discord.Client):
         if message.content.startswith("!максим"):
             count = int(message.content.split()[1])
             while count != 0:
-                await message.channel.send(f"<@316595488432455680>")
-                count = count - 1
-                await asyncio.sleep(2)
+                if count > 0:
+                    await message.channel.send(f"<@316595488432455680>")
+                    count = count - 1
+                    await asyncio.sleep(2)
+                else:
+                    print("Ты дебилка?")
         if message.content.startswith("!помощь"):
             await message.channel.send('''Список команд:
              !орел и решка - по названию не понятно?
