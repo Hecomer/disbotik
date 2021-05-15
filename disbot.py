@@ -24,7 +24,7 @@ class Disociate(discord.Client):
         if message.content.startswith("!максим"):
             count = int(message.content.split()[1])
             while count != 0:
-                if count > 0:
+                if count > 0 and count <= 20:
                     await message.channel.send(f"<@316595488432455680>")
                     count = count - 1
                     await asyncio.sleep(2)
